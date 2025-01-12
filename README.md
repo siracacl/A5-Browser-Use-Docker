@@ -1,4 +1,4 @@
-# A5 - Simplified Browser Automation Tool
+# A5-Browser-Use Chrome Extention and Server 
 
 **A5** is an open-source project that integrates the powerful **Browser Use** Python library with a user-friendly Chrome extension. It aims to simplify browser automation tasks by providing an all-in-one solution that requires minimal setup, making it accessible to both developers and non-developers alike.
 
@@ -26,13 +26,13 @@
 
 Before you begin, ensure you have met the following requirements:
 
-- **Python 3.7 or higher** installed on your machine ([Download Python](https://www.python.org/downloads/))
+- **Python 3.11 or higher** installed on your machine ([Download Python](https://www.python.org/downloads/))
 - **Google Chrome** browser installed ([Download Chrome](https://www.google.com/chrome/))
 - **Git** installed for cloning the repository ([Download Git](https://git-scm.com/downloads))
 
 ## Installation
 
-Follow these steps to set up **A5** on your local machine.
+Follow these steps to set up **A5-Browser-Use** on your local machine.
 
 ### Clone the Repository
 
