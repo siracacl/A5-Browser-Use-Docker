@@ -20,30 +20,22 @@ This project is **experimental**. You can run it easily on macOS by using the ex
    ```bash
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
    ```
-3. **Navigate to `Python_server/dist`** in your project, and run:
-   ```bash
-   ./a5browseruse
-   ```
-   - This will start the FastAPI server if you’ve already built an executable for macOS using PyInstaller.  
-   - If the server starts successfully, you’ll see logs in your terminal.  
-4. **Access the API** at [http://127.0.0.1:8888/](http://127.0.0.1:8888/).
 
-**Alternatively**, you can run everything via Python directly:
+3. Make sure you have **Python 3.11** or higher installed.
 
-1. Make sure you have **Python 3.11** or higher installed.
-2. From the `Python_server` folder, install dependencies:
+4. From the `Python_server` folder, install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-3. Close Chrome, and start Chrome with remote debugging:
+5. Close Chrome, and start Chrome with remote debugging:
    ```bash
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
    ```
-4. In a separate terminal window, still in `Python_server`, start the server:
+6. In a separate terminal window, still in `Python_server`, start the server:
    ```bash
    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
    ```
-5. Once the server is running, open [http://127.0.0.1:8888/](http://127.0.0.1:8888/) to verify it’s active.
+7. Once the server is running, open [http://127.0.0.1:8888/](http://127.0.0.1:8888/) to verify it’s active.
 
 ### Quick Start (Linux and Windows)
 
