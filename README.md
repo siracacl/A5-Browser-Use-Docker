@@ -2,7 +2,8 @@
 
 <img src="./attached_assets/screenshot1.png" alt="Screenshot of the Chrome Extension" style="display: block; width: 100%; max-width: none;" />
 
-**A5** is an open-source project that integrates the powerful **Browser Use** Python library with a user-friendly Chrome extension. It aims to simplify browser automation tasks by providing an all-in-one solution that requires minimal setup, making it accessible to both developers and non-developers alike.
+**A5** is an open-source project that integrates the powerful [**Browser Use** Python library](https://github.com/browser-use/browser-use) with a user-friendly RESTful API and Chrome extension. It aims to simplify agentic AI-powered browser automation tasks by providing an all-in-one solution that requires minimal setup, making it accessible to both developers and non-developers alike.
+
 
 ---
 
