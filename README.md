@@ -1,5 +1,7 @@
 # A5-Browser-Use Chrome Extension and Server for Agentic AI Workflows
 
+![Screenshot of the Chrome Extension](./attached_assets/screenshot1.png)
+
 **A5** is an open-source project that integrates the powerful **Browser Use** Python library with a user-friendly Chrome extension. It aims to simplify browser automation tasks by providing an all-in-one solution that requires minimal setup, making it accessible to both developers and non-developers alike.
 
 ---
