@@ -7,11 +7,10 @@ This directory contains the Chrome extension component of the A5 Browser Automat
 The extension consists of the following key components:
 
 - `manifest.json`: Extension configuration and permissions
-- `popup.html`: The main UI that appears when clicking the extension icon
-- `popup.js`: Frontend logic for the extension
-- `background.js`: Background service worker for handling API requests
-- `styles/`: CSS stylesheets for the extension UI
+- `src/inject/inject.js`: Frontend logic for the extension
 - `icons/`: Extension icons in various sizes
+
+jQuery comes baked in for the old school folks who love and need it in the inject script.
 
 ## Development
 

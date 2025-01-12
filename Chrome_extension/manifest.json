@@ -1,29 +1,35 @@
 {
-  "manifest_version": 3,
   "name": "A5 Browser Automation",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "manifest_version": 2,
   "description": "A user-friendly interface for browser automation using the Browser Use library",
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
-  "host_permissions": [
-    "http://localhost:8000/*"
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    }
-  },
+  "homepage_url": "http://amicus5.com",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "default_locale": "en",
   "background": {
-    "service_worker": "background.js"
-  }
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "js/jquery/jquery.js",
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+       "extra.js"
+  ]
 }
