@@ -12,6 +12,7 @@ from langchain_openai import ChatOpenAI
 from browser_use import Agent
 from dotenv import load_dotenv
 import os
+import platform
 import asyncio
 from fastapi import FastAPI, HTTPException, Query, BackgroundTasks
 from pydantic import BaseModel
@@ -92,6 +93,39 @@ task_lock = asyncio.Lock()  # To manage concurrent access to task_records
 # ----------------------------
 # 6. Define Background Task Function
 # ----------------------------
+
+
+def get_chrome_path() -> str:
+    """
+    Returns the most common Chrome executable path based on the operating system.
+    Raises:
+        FileNotFoundError: If Chrome is not found in the expected path.
+    """
+    system = platform.system()
+    
+    if system == "Windows":
+        # Common installation path for Windows
+        chrome_path = os.path.join(
+            os.environ.get("PROGRAMFILES", "C:\\Program Files"),
+            "Google\\Chrome\\Application\\chrome.exe"
+        )
+    elif system == "Darwin":
+        # Common installation path for macOS
+        chrome_path = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    elif system == "Linux":
+        # Common installation path for Linux
+        chrome_path = "/usr/bin/google-chrome"
+    else:
+        raise FileNotFoundError(f"Unsupported operating system: {system}")
+    
+    # Verify that the Chrome executable exists at the determined path
+    if not os.path.exists(chrome_path):
+        raise FileNotFoundError(f"Google Chrome executable not found at: {chrome_path}")
+    
+    return chrome_path
+
+
+
 async def execute_task(task_id: int, task: str):
     """
     Background task to execute the AI agent.
@@ -116,7 +150,7 @@ async def execute_task(task_id: int, task: str):
         logger.info(f"Task ID {task_id}: Initializing new browser instance.")
         browser = Browser(
             config=BrowserConfig(
-                chrome_instance_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',  # Update if different
+                chrome_instance_path=get_chrome_path(),  # Update if different
                 disable_security=True,
                 headless=False,  # Set to True for headless mode
                 # Removed 'remote_debugging_port' as it caused issues
