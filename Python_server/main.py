@@ -287,12 +287,11 @@ def read_root():
         "message": "AI Agent API with BrowserUse is running. Use the /run endpoint with a 'task' field in the POST request body or as a query parameter in a GET request to execute tasks."
     }
 
-
-
+#For executable.
 # ----------------------------
 # 12. Entry Point
 # ----------------------------
-if __name__ == "__main__":
-    import uvicorn
+#if __name__ == "__main__":
+#    import uvicorn
 
-    uvicorn.run("main:app", host="127.0.0.1", port=8888, reload=True, workers=1)
+#    uvicorn.run("main:app", host="127.0.0.1", port=8888, reload=True, workers=1)
