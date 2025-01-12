@@ -1,16 +1,15 @@
 # A5 Python Server
 
-This directory contains the Python server component of the A5 Browser Automation Tool. The server handles requests from the Chrome extension and executes browser automation commands using the Browser Use library.
+This directory contains the Python server component of the A5 Browser Automation Tool (mainly main.py). The server handles requests from the Chrome extension (or your own web application) and executes browser automation commands using the Browser Use library.
 
 ## Structure
 
 The server consists of the following key components:
 
-- `server.py`: Main server application
-- `handlers/`: Request handlers and business logic
-- `utils/`: Utility functions and helpers
-- `models/`: Data models and database schemas
-- `config/`: Configuration files and environment variables
+- `main.py`: Main server application
+- `utils/`: Future: Utility functions and helpers
+- `models/`: Future: Data models and database schemas
+- `config/`: Future: Configuration files and environment variables
 
 ## Development
 
