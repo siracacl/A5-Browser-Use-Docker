@@ -13,9 +13,13 @@ Your commands control the browser - made easy.
 
 ## Important (Experimental) Notice
 
-This project is **experimental**. 
+This project is **experimental**. You can run it easily on macOS by using the executable generated in the `Python_server/dist` folder (e.g., `./a5browseruse` on macOS). For other platforms like **Linux** and **Windows**, you can build or run the server similarly (see the [Installation](#installation) steps for more details).
 
 ### Quick Start (macOS)
+
+Note: Mac Users *should* be able to run the executable located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`
+
+However, if this does not work, you can follow these steps to set it up manually:
 
 1. **Close all Chrome windows completely.**  
 2. **Start Chrome with Remote Debugging Enabled** (required by Browser Use):

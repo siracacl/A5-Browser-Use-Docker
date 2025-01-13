@@ -8,10 +8,12 @@
 #    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
 # make sure you set OPENAI_API_KEY=yourOpenAIKeyHere to .env file
 
+import os
+os.environ["PYDANTIC_V1_COMPAT_MODE"] = "true"
+
 from langchain_openai import ChatOpenAI
 from browser_use import Agent
 from dotenv import load_dotenv
-import os
 import platform
 import asyncio
 from fastapi import FastAPI, HTTPException, Query, BackgroundTasks
@@ -23,6 +25,7 @@ from datetime import datetime
 from typing import List, Optional
 from enum import Enum
 from fastapi.middleware.cors import CORSMiddleware
+
 
 
 # ----------------------------
@@ -291,7 +294,7 @@ def read_root():
 # ----------------------------
 # 12. Entry Point
 # ----------------------------
-#if __name__ == "__main__":
-#    import uvicorn
+if __name__ == "__main__":
+    import uvicorn
 
-#    uvicorn.run("main:app", host="127.0.0.1", port=8888, reload=True, workers=1)
+    uvicorn.run("main:app", host="127.0.0.1", port=8888, reload=True, workers=1)
