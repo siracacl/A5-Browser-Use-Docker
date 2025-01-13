@@ -2,6 +2,7 @@
   "name": "A5 Browser Automation",
   "version": "0.0.1",
   "manifest_version": 2,
+  
   "description": "A user-friendly interface for browser automation using the Browser Use library",
   "homepage_url": "http://amicus5.com",
   "icons": {
@@ -15,7 +16,8 @@
     "persistent": true
   },
   "permissions": [
-    "https://*/*"
+    "https://*/*",
+     "storage"
   ],
   "content_scripts": [
     {

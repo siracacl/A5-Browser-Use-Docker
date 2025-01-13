@@ -15,14 +15,19 @@ Your commands control the browser - made easy.
 
 This project is **experimental**. You can run it easily on macOS by using the executable generated in the `Python_server/dist` folder (e.g., `./a5browseruse` on macOS). For other platforms like **Linux** and **Windows**, you can build or run the server similarly (see the [Installation](#installation) steps for more details).
 
+# WARNING IMPORTANT BEFORE STARTING
+
+Make sure to start Chrome in debug mode or you will get irratic behavior (many browser windows opening and closing). Instructions are below on how to do that based on your operating system.
+
+
 ### Quick Start (macOS)
 
-Note: Mac Users *should* be able to run the executable located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`
+Note: Mac Users *should* be able to run the executable (*after making sure to start Chrome in debug mode, per the warning above*) located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`
 
-However, if this does not work, you can follow these steps to set it up manually:
+However, if this does not work or alternatively, you can follow these steps to set it up manually:
 
 1. **Close all Chrome windows completely.**  
-2. **Start Chrome with Remote Debugging Enabled** (required by Browser Use):
+2. *IMPORTANT* : **Start Chrome with Remote Debugging Enabled** (required by Browser Use):
    ```bash
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
    ```
@@ -88,6 +93,13 @@ However, if this does not work, you can follow these steps to set it up manually
 - **Cross-Platform Support**: Compatible with Windows, macOS, and Linux  
 - **Open-Source**: Community-driven development to continuously enhance functionality and usability  
 - **RESTful API**: Well-documented API endpoints for easy integration and extensibility
+
+
+*NEW* 
+- **Context Storage**: You can add context to be saved and used for all of your commands (across sessions). Click "Advanced Settings" under the command bar, and save information that will be included with each initial command. This can include methods for overcoming obstacles you have observed or to prevent having to repeat the same information everytime. You can edit this at any time or clear the information.
+
+<img src="./attached_assets/screenshot2.png" alt="Screenshot of advanced settings for persistent storage" style="display: block; width: 100%; max-width: none;" />
+
 
 ---
 
