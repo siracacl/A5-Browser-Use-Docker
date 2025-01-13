@@ -13,7 +13,7 @@ Your commands control the browser - made easy.
 
 ## Important (Experimental) Notice
 
-This project is **experimental**. You can run it easily on macOS by using the executable generated in the `Python_server/dist` folder (e.g., `./a5browseruse` on macOS). For other platforms like **Linux** and **Windows**, you can build or run the server similarly (see the [Installation](#installation) steps for more details).
+This project is **experimental**. 
 
 ### Quick Start (macOS)
 
