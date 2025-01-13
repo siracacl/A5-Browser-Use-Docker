@@ -22,11 +22,7 @@ To set up the development environment:
 
 ## API Endpoints
 
-The server will expose RESTful API endpoints for:
 
-- Command execution
-- Session management
-- Status monitoring
-- Error handling
+[GET] `/lastResponses` returns the browser-use responses from the end of sessions
+[GET]`/run` : Parameter: `task`. The `task` parameter is the string being passed to the intitial command for browser-use. 
 
-Documentation for these endpoints will be provided as they are implemented.

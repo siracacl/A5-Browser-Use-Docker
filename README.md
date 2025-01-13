@@ -15,7 +15,7 @@ Your commands control the browser - made easy.
 
 This project is **experimental**. You can run it easily on macOS by using the executable generated in the `Python_server/dist` folder (e.g., `./a5browseruse` on macOS). For other platforms like **Linux** and **Windows**, you can build or run the server similarly (see the [Installation](#installation) steps for more details).
 
-# WARNING IMPORTANT BEFORE STARTING
+### WARNING: Important before proceeding
 
 Make sure to start Chrome in debug mode or you will get irratic behavior (many browser windows opening and closing). Instructions are below on how to do that based on your operating system.
 
@@ -96,6 +96,7 @@ However, if this does not work or alternatively, you can follow these steps to s
 
 
 *NEW* 
+
 - **Context Storage**: You can add context to be saved and used for all of your commands (across sessions). Click "Advanced Settings" under the command bar, and save information that will be included with each initial command. This can include methods for overcoming obstacles you have observed or to prevent having to repeat the same information everytime. You can edit this at any time or clear the information.
 
 <img src="./attached_assets/screenshot2.png" alt="Screenshot of advanced settings for persistent storage" style="display: block; width: 100%; max-width: none;" />
