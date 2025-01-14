@@ -17,12 +17,12 @@ This project is **experimental**. You can run it easily on macOS by using the ex
 
 ### WARNING: Important before proceeding
 
-Make sure to start Chrome in debug mode or you will get irratic behavior (many browser windows opening and closing). Instructions are below on how to do that based on your operating system.
+Make sure to start Chrome in debug mode or you will get irratic behavior (many browser windows opening and closing). Instructions are below on how to do that based on your operating system. Additionally, you will need to create a .env file in the Python_server folder with your OpenAI or other provider credentials. Currently, only the OpenAI API is supported; however, support for other providers are in the works. Pull requests are welcomed!
 
 
 ### Quick Start (macOS)
 
-Note: Mac Users *should* be able to run the executable (*after making sure to start Chrome in debug mode, per the warning above*) located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`
+Note: Mac Users *should* be able to run the executable (*after making sure to start Chrome in debug mode, per the warning above*) located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`. Additionally, you will need to create a .env file in the `Python_server/dist` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
 
 However, if this does not work or alternatively, you can follow these steps to set it up manually:
 
@@ -148,11 +148,13 @@ cd A5-Browser-Use
      ```bash
      google-chrome --remote-debugging-port=9222
      ```
-4. In a new terminal window (while Chrome is running in remote debugging mode), start the FastAPI server:
+4. You will need to create a .env file in the `Python_server/` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
+
+5. In a new terminal window (while Chrome is running in remote debugging mode), start the FastAPI server:
    ```bash
    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers=1
    ```
-5. Go to [http://localhost:8888/lastResponses](http://localhost:8888/lastResponses/) in your browser to confirm the server is running.
+6. Go to [http://localhost:8888/lastResponses](http://localhost:8888/lastResponses/) in your browser to confirm the server is running.
 
 ### Install the Chrome Extension
 
