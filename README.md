@@ -121,7 +121,7 @@ Follow these steps to set up **A5-Browser-Use** on your local machine.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/YourUsername/A5-Browser-Use.git
+git clone https://github.com/AgenticA5/A5-Browser-Use.git
 cd A5-Browser-Use
 ```
 
@@ -135,7 +135,7 @@ cd A5-Browser-Use
    ```bash
    pip install -r requirements.txt
    ```
-3. Close all instances of Chrome, then start it with remote debugging:
+3. Close *all instances* of Chrome, then start it with remote debugging:
    - **macOS**:
      ```bash
      /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
@@ -152,7 +152,7 @@ cd A5-Browser-Use
    ```bash
    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers=1
    ```
-5. Go to [http://127.0.0.1:8888/](http://127.0.0.1:8888/) in your browser to confirm the server is running.
+5. Go to [http://localhost:8888/lastResponses](http://localhost:8888/lastResponses/) in your browser to confirm the server is running.
 
 ### Install the Chrome Extension
 
