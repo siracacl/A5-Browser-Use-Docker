@@ -24,5 +24,12 @@ To set up the development environment:
 
 
 [GET] `/lastResponses` returns the browser-use responses from the end of sessions
-[GET]`/run` : Parameter: `task`. The `task` parameter is the string being passed to the intitial command for browser-use. 
+[GET] `/run` : Parameter: `task`. The `task` parameter is the string being passed to the intitial command for browser-use. 
 
+## Example Request
+```
+$ curl -X POST \
+  http://localhost:8888/run \
+  -H "Content-Type: application/json" \
+  -d '{"task": "Search for the latest news about artificial intelligence"}'
+```

@@ -17,8 +17,11 @@ jQuery comes baked in for the old school folks who love and need it in the injec
 To work on the extension:
 
 1. Make changes to the source files
-2. Load the extension in Chrome using Developer mode
-3. Test the changes by interacting with the extension
+2. In chrome, go to `chrome://extensions`
+3. Enable "Developer mode" in the top right corner
+4. Click `Load Unpacked`
+5. Select the parent directory that contains the `manifest.json` file
+6. Test the changes by interacting with the extension
 
 ## Building
 
