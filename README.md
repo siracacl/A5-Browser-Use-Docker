@@ -42,11 +42,13 @@ However, if this does not work or alternatively, you can follow these steps to s
    ```bash
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
    ```
-6. In a separate terminal window, still in `Python_server`, start the server:
+6. You will need to create a .env file in the `Python_server/` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
+
+7. In a separate terminal window, still in `Python_server`, start the server:
    ```bash
    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
    ```
-7. Once the server is running, open [http://127.0.0.1:8888/](http://127.0.0.1:8888/) to verify it’s active.
+8. Once the server is running, open [http://localhost:8888/lastResponses/](http://localhost:8888/lastResponses/) to verify it’s active.
 
 ### Quick Start (Linux and Windows)
 
@@ -60,13 +62,17 @@ However, if this does not work or alternatively, you can follow these steps to s
      ```bash
      google-chrome --remote-debugging-port=9222
      ```
-3. **Run the Python Server** (similarly as macOS):
+
+3. You will need to create a .env file in the `Python_server/` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
+
+
+4. **Run the Python Server** (similarly as macOS):
    ```bash
    cd Python_server
    pip install -r requirements.txt
    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
    ```
-4. **Access the API** at [http://127.0.0.1:8888/](http://127.0.0.1:8888/).
+5. **Access the API** at [http://localhost:8888/lastResponses/](http://localhost:8888/lastResponses/).
 
 > If you need a standalone executable on Windows or Linux, you’ll have to build it **on** that platform (since PyInstaller doesn’t support cross-compiling). The resulting file will be in the `dist` folder for that OS.
 
