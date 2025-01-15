@@ -4,6 +4,14 @@
   "manifest_version": 2,
   
   "description": "A user-friendly interface for browser automation using the Browser Use library",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
   "homepage_url": "http://amicus5.com",
   "icons": {
     "16": "icons/icon16.png",
@@ -17,7 +25,8 @@
   },
   "permissions": [
     "https://*/*",
-     "storage"
+     "storage",
+     "tabs"
   ],
   "content_scripts": [
     {
