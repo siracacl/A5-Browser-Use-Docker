@@ -30,7 +30,7 @@ However, if this does not work or alternatively, you can follow these steps to s
 2. *IMPORTANT* : **Start Chrome with Remote Debugging Enabled** (required by Browser Use):
    ```bash
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --profile-directory="Default"
-```
+   ```
 3. Make sure you have **Python 3.11** or higher installed.
 
 4. From the `Python_server` folder, install dependencies:
