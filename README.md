@@ -30,6 +30,7 @@ However, if this does not work or alternatively, you can follow these steps to s
 2. *IMPORTANT* : **Start Chrome with Remote Debugging Enabled** (required by Browser Use):
    ```bash
    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+ --profile-directory="Default"
    ```
 
 3. Make sure you have **Python 3.11** or higher installed.
@@ -40,13 +41,14 @@ However, if this does not work or alternatively, you can follow these steps to s
    ```
 5. Close Chrome, and start Chrome with remote debugging:
    ```bash
-   /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+   /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --profile-directory="Default"
+
    ```
 6. You will need to create a .env file in the `Python_server/` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
 
 7. In a separate terminal window, still in `Python_server`, start the server:
    ```bash
-   uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
+   uvicorn main:app --host 127.0.0.1 --port 8888 --workers 1
    ```
 8. Once the server is running, open [http://localhost:8888/lastResponses/](http://localhost:8888/lastResponses/) to verify it’s active.
 
@@ -56,11 +58,13 @@ However, if this does not work or alternatively, you can follow these steps to s
 2. **Start Chrome with Remote Debugging Enabled**:
    - **Windows** (in Command Prompt or PowerShell):
      ```cmd
-     "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222
+     "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --profile-directory="Default"
+
      ```
    - **Linux** (in Terminal):
      ```bash
-     google-chrome --remote-debugging-port=9222
+     google-chrome --remote-debugging-port=9222 --profile-directory="Default"
+
      ```
 
 3. You will need to create a .env file in the `Python_server/` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
@@ -70,7 +74,7 @@ However, if this does not work or alternatively, you can follow these steps to s
    ```bash
    cd Python_server
    pip install -r requirements.txt
-   uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
+   uvicorn main:app --host 127.0.0.1 --port 8888 --workers 1
    ```
 5. **Access the API** at [http://localhost:8888/lastResponses/](http://localhost:8888/lastResponses/).
 
@@ -144,21 +148,24 @@ cd A5-Browser-Use
 3. Close *all instances* of Chrome, then start it with remote debugging:
    - **macOS**:
      ```bash
-     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --profile-directory="Default"
+
      ```
    - **Windows**:
      ```cmd
-     "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222
+     "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --profile-directory="Default"
+
      ```
    - **Linux**:
      ```bash
-     google-chrome --remote-debugging-port=9222
+     google-chrome --remote-debugging-port=9222 --profile-directory="Default"
+
      ```
 4. You will need to create a .env file in the `Python_server/` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
 
 5. In a new terminal window (while Chrome is running in remote debugging mode), start the FastAPI server:
    ```bash
-   uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers=1
+   uvicorn main:app --host 127.0.0.1 --port 8888 --workers=1
    ```
 6. Go to [http://localhost:8888/lastResponses](http://localhost:8888/lastResponses/) in your browser to confirm the server is running.
 
