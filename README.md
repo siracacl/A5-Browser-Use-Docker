@@ -22,7 +22,7 @@ Make sure to start Chrome in debug mode or you will get irratic behavior (many b
 
 ### Quick Start (macOS)
 
-Note: Mac Users *should* be able to run the executable (*after making sure to start Chrome in debug mode, per the warning above*) located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`. Additionally, you will need to create a .env file in the `Python_server/dist` folder with your OpenAI or other provider credentials. An example of the format is available in the .env.example file.
+Note: Mac Users *should* be able to run the executable (*after making sure to start Chrome in debug mode and setting your .env with your relevant API key information, per the warning above*) located in the `Python_server/dist` folder by navigating to the Python_server/dist folder and running  `./a5browseruse`. Again, you will need to create a .env file in the `Python_server/dist` folder with your OpenAI or other provider credentials if you are taking this route. An example of the format is available in the .env.example file.
 
 However, if this does not work or alternatively, you can follow these steps to set it up manually:
 
