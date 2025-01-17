@@ -71,7 +71,7 @@ However, if this does not work or alternatively, you can follow these steps to s
 2. **Start Chrome with Remote Debugging Enabled**:
    - **Windows** (in Command Prompt or PowerShell):
      ```cmd
-     "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --profile-directory="Default"
+     "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --profile-directory="Default" --disable-features=BlockInsecurePrivateNetworkRequests
 
      ```
    - **Linux** (in Terminal):
