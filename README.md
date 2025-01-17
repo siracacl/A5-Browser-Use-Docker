@@ -17,7 +17,7 @@ This project is **experimental**. You can run it easily on macOS by using the ex
 
 ### WARNING: Important before proceeding
 
-Make sure to start Chrome in debug mode or you will get irratic behavior (many browser windows opening and closing). Instructions are below on how to do that based on your operating system. Additionally, you will need to create a .env file in the Python_server folder with your OpenAI or other provider credentials. Currently, only the OpenAI API is supported; however, support for other providers are in the works. Pull requests are welcomed!
+Make sure to start Chrome in debug mode or you will get irratic behavior (many browser windows opening and closing). Instructions are below on how to do that based on your operating system. Additionally, you will need to create a .env file in the Python_server folder with your OpenAI, Gemini or other provider credentials (example of the .env format is in Python_server/.env.example).
 
 
 ### Quick Start (macOS)
@@ -230,7 +230,7 @@ After the setup:
 
 ## Contributing
 
-We welcome contributions from the community! In particular, if you’d like to add support for additional AI providers beyond OpenAI, **please open a Pull Request**.
+We welcome contributions from the community! In particular, if you’d like to add support for additional AI providers beyond OpenAI, Gemini and Ollama, **please open a Pull Request** or open an Issue.
 
 1. **Fork the Project**
 2. **Create a new branch** (`git checkout -b feature/YourFeature`)
