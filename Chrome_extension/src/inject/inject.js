@@ -338,20 +338,7 @@
 	  // ----------------------------------------
 	  // 5. Toggle Expand/Collapse of Main Panel
 	  // ----------------------------------------
-	  toggleTab.addEventListener("click", (e) => {
-		e.stopPropagation(); // Prevent event bubbling
-		const isExpanded = panel.classList.toggle("expanded");
-		toggleTab.setAttribute("aria-expanded", isExpanded);
-  
-		// If we close the panel, also close advanced settings
-		if (!isExpanded) {
-		  advancedSettingsContainer.classList.remove("active");
-		  panel.classList.remove("expanded-advanced");
-		} else {
-		  commandInput.focus(); // Automatically focus input
-		}
-	  });
-  
+		
 	  // Close panel when clicking outside
 	  document.addEventListener("click", (e) => {
 		if (!shadowHost.contains(e.target)) {
@@ -432,33 +419,33 @@
 	  // 9. Handle "Run" Button Click
 	  // ----------------------------------------
 	  runButton.addEventListener("click", async () => {
-		const task = commandInput.value.trim();
-		if (!task) {
-		  alert("Please enter a task.");
-		  return;
-		}
-  
-		// Disable the button and change its text to "Running"
-		runButton.disabled = true;
-		runButton.textContent = "Running...";
-		feedbackMessage.textContent = "Submitting your task...";
-  
-		try {
+		  const task = commandInput.value.trim();
+		  if (!task) {
+			alert("Please enter a task.");
+			return;
+		  }
+		
+		  // Disable the button and change its text to "Running"
+		  runButton.disabled = true;
+		  runButton.textContent = "Running...";
+		  feedbackMessage.textContent = "Submitting your task...";
+		
+		  try {
 		  // Retrieve advanced context from chrome.storage.local
 		  chrome.storage.local.get(["agenticAdvancedContext"], async (result) => {
 			const advancedContext = result.agenticAdvancedContext || "";
-  
+		
 			// Construct the task with context
-			const sanitizedContext = advancedContext
-			  .replace(/\\/g, "\\\\")
-			  .replace(/"/g, '\\"')
-			  .replace(/\n/g, "\\n");
+			  const sanitizedContext = advancedContext
+				.replace(/\\/g, "\\\\")
+				.replace(/"/g, '\\"')
+				.replace(/\n/g, "\\n");
   
 			let taskWithContext = `Please start from this site ${window.location.href} and do this: ${task}`;
 			if (sanitizedContext.trim().length > 0) {
 			  taskWithContext += `\n\nHere is additional context about the user:\n"${sanitizedContext}"`;
 			}
-  
+		
 			// Send the task to the local server
 			const response = await fetch("http://127.0.0.1:8888/run", {
 			  method: "POST",
@@ -468,29 +455,29 @@
 			  },
 			  body: JSON.stringify({ task: taskWithContext }),
 			});
-  
+		
 			if (!response.ok) {
 			  throw new Error(`Server responded with status ${response.status}`);
 			}
-  
+		
 			const data = await response.json();
 			console.log("Task submitted:", data);
-  
+		
 			// Update feedback message
 			feedbackMessage.textContent = "Task is being processed.";
 		  });
-		} catch (error) {
-		  console.error("Error submitting task:", error);
-		  feedbackMessage.textContent = "Failed to submit the task. Please try again.";
-		} finally {
-		  // Re-enable the button and reset its text after 15 seconds
-		  setTimeout(() => {
-			runButton.disabled = false;
-			runButton.textContent = "Run";
-			feedbackMessage.textContent = "";
-		  }, 15000);
-		}
-	  });
+		  } catch (error) {
+			console.error("Error submitting task:", error);
+			feedbackMessage.textContent = "Failed to submit the task. Please try again.";
+		  } finally {
+			// Re-enable the button and reset its text after 15 seconds
+			setTimeout(() => {
+			  runButton.disabled = false;
+			  runButton.textContent = "Run";
+			  feedbackMessage.textContent = "";
+			}, 15000);
+		  }
+		});	  
   
 	  // ----------------------------------------
 	  // 10. Handle Enter Key in the Input Field
@@ -518,6 +505,90 @@
 		observer.observe(document.documentElement, { childList: true, subtree: true });
 	  }
 	}
+
+	// ----------------------------------------
+	// 12. Make the toggle button draggable on Y-axis
+	// ----------------------------------------
+	  // Variables for dragging
+	  let isDragging = false;
+	  let isClick = false;
+	  let startY = 0;
+	  let initialTop = 0;
+	  const DRAG_THRESHOLD = 5; // You can tweak this number
+  
+	  // 1. MOUSE DOWN
+	  toggleTab.addEventListener("mousedown", (e) => {
+		e.stopPropagation();
+  
+		isDragging = true;
+		isClick = true; // Assume it might be a click until movement exceeds threshold
+  
+		startY = e.clientY;
+		// Current top of panel
+		const panelStyles = window.getComputedStyle(panel);
+		initialTop = parseInt(panelStyles.top, 10) || 0;
+  
+		// Change cursor to indicate dragging is possible
+		toggleTab.style.cursor = "grabbing";
+	  });
+  
+	  // 2. MOUSE MOVE
+	  document.addEventListener("mousemove", (e) => {
+		if (!isDragging) return;
+  
+		e.preventDefault();
+		e.stopPropagation();
+  
+		// Calculate how far the mouse has moved vertically
+		const deltaY = e.clientY - startY;
+  
+		// If the movement exceeds our threshold, it's no longer just a click
+		if (Math.abs(deltaY) > DRAG_THRESHOLD) {
+		  isClick = false;
+		}
+  
+		// If we’re dragging, update the top position of the panel (stay in bounds)
+		if (!isClick) {
+		  let newTop = initialTop + deltaY;
+  
+		  // Constrain within viewport
+		  const panelHeight = panel.offsetHeight;
+		  const viewportHeight = window.innerHeight;
+		  if (newTop < 0) newTop = 0;
+		  if (newTop + panelHeight > viewportHeight) {
+			newTop = viewportHeight - panelHeight;
+		  }
+  
+		  panel.style.top = `${newTop}px`;
+		}
+	  });
+  
+	  // 3. MOUSE UP
+	  document.addEventListener("mouseup", (e) => {
+		if (!isDragging) return;
+		e.stopPropagation();
+  
+		// Restore cursor
+		toggleTab.style.cursor = "pointer";
+  
+		// If movement stayed under threshold, treat as click → toggle the panel
+		if (isClick) {
+		  const isExpanded = panel.classList.toggle("expanded");
+		  toggleTab.setAttribute("aria-expanded", isExpanded);
+  
+		  // Close advanced settings when collapsing
+		  if (!isExpanded) {
+			advancedSettingsContainer.classList.remove("active");
+			panel.classList.remove("expanded-advanced");
+		  } else {
+			commandInput.focus();
+		  }
+		}
+  
+		// Reset flags
+		isDragging = false;
+		isClick = false;
+	  });
   
 	// Invoke the function
 	waitForBodyAndInject();
