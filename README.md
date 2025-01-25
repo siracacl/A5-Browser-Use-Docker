@@ -4,7 +4,7 @@ Your commands control the browser - made easy. Supports various large language m
 
 <img src="./attached_assets/screenshot1.png" alt="Screenshot of the Chrome Extension" style="display: block; width: 100%; max-width: none;" />
 
-**A5** is an open-source project that integrates the powerful [**Browser Use** Python library](https://github.com/browser-use/browser-use) with a user-friendly RESTful API and Chrome extension. It aims to simplify agentic AI-powered browser automation tasks by providing an all-in-one solution that requires minimal setup, making it accessible to both developers and non-developers alike.
+**A5** is an open-source project that integrates the powerful [**Browser Use** Python library](https://github.com/browser-use/browser-use) (along with [Gradio-AI](https://github.com/AK391/ai-gradio) support coming soon) with a user-friendly RESTful API and Chrome extension. It aims to simplify agentic AI-powered browser automation tasks by providing an all-in-one solution that requires minimal setup, making it accessible to both developers and non-developers alike.
 
 ### Chrome Extension Demo:
 <img src="./attached_assets/demo1.gif" alt="Chrome Extension Demo Gif" style="display: block; width: 100%; max-width: none;" />
