@@ -159,9 +159,9 @@ async def execute_task(task_id: int, task: str):
             task=task,
             llm=ChatOllama(
             model="qwen2.5:32b-instruct-q4_K_M",
-            browser=browser,
             num_ctx=32000
             ),
+            browser=browser
         )
         logger.info(f"Task ID {task_id}: Agent initialized. Running task.")
         result = await agent.run()
