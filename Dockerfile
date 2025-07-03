@@ -7,13 +7,28 @@ RUN apt-get update && apt-get install -y \
     unzip \
     curl \
     xvfb \
+    fonts-liberation \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libatspi2.0-0 \
+    libdrm2 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    xdg-utils \
+    libu2f-udev \
+    libvulkan1 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Google Chrome
-RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+# Install Google Chrome using the modern approach
+RUN wget -q -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && apt-get update \
-    && apt-get install -y google-chrome-stable \
+    && apt-get install -y --fix-broken /tmp/google-chrome-stable_current_amd64.deb \
+    && rm /tmp/google-chrome-stable_current_amd64.deb \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
