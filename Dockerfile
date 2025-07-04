@@ -1,12 +1,14 @@
 FROM python:3.11-slim
 
-# Install system dependencies for Chrome
+# Install system dependencies for Chromium
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg \
     unzip \
     curl \
     xvfb \
+    chromium \
+    chromium-driver \
     fonts-liberation \
     libasound2 \
     libatk-bridge2.0-0 \
@@ -22,13 +24,6 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     libu2f-udev \
     libvulkan1 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install Google Chrome using the modern approach
-RUN wget -q -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-    && apt-get update \
-    && apt-get install -y --fix-broken /tmp/google-chrome-stable_current_amd64.deb \
-    && rm /tmp/google-chrome-stable_current_amd64.deb \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
