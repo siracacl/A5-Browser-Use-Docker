@@ -1,9 +1,10 @@
 # main.py
 
 # Important Instructions:
-# 1. Close any existing Chrome instances.
-# 2. Start Chrome with remote debugging enabled:
-#    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+# 1. Close any existing Chromium instances.
+# 2. Start Chromium with remote debugging enabled:
+#    /usr/bin/chromium --remote-debugging-port=9222 (Linux)
+#    /Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 (macOS)
 # 3. Run the FastAPI server:
 #    uvicorn main:app --host 127.0.0.1 --port 8888 --reload --workers 1
 # make sure you set OPENAI_API_KEY=yourOpenAIKeyHere to .env file
